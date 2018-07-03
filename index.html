@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='node_modules/fullcalendar/dist/fullcalendar.min.css' rel='stylesheet' />
+<link href='node_modules/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' />
+<link href='node_modules/fullcalendar/dist/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='node_modules/moment/min/moment.min.js'></script>
+<script src='node_modules/jquery/dist/jquery.min.js'></script>
+<script src='node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
+<script src='node_modules/ical.js/build/ical.min.js'></script>
+<script type='text/javascript' src='node_modules/fullcalendar/dist/gcal.js'></script>
+<script type="text/javascript">
+ $(document).ready(function () {
+    var fc = $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listMonth'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      themeSystem: 'bootstrap4',
+      googleCalendarApiKey: 'AIzaSyDUvhJWZ005lP-q-KfoEDxbbzzGXJfFEVc',
+      eventSources: [
+	      {
+	      		origicalICS: 'webcal://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/3523f1b91b744dff8554dba98e8ab3d815867960394945796346/calendar.ics',
+			      googleCalendarId: 'bqbj5s4pnbes10ig8ad132t83qp4i9mg@import.calendar.google.com',
+			      className: 'gcal-event',
+			      title: 'dm studio',
+			      color: '#111'
+			    },
+			    {
+			    		origicalICS: 'webcal://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/e2e8340a49324b65866a74512768087514114549207167380889/calendar.ics',
+			      googleCalendarId: 'rasghqkqfqv7i9k27bre0hkcm02je1ak@import.calendar.google.com',
+			      className: 'gcal-event',
+			      title: 'dm study',
+			      color: '#444'
+			    },
+			    {
+			      origicalICS: 'webcal://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/09c3cf509ddc4eca87282fae731e2cf210280595068658001170/calendar.ics',
+			      googleCalendarId: 'aoibqpcjti8ht663k6b0vh9ns68smch1@import.calendar.google.com',
+			      className: 'gcal-event',
+			      title: 'dm bremen',
+			      color: '#777'
+			    },
+			    {
+			      origicalICS: 'webcal://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/c2b1bdfe2e9c4db081fde97f1e5770534804734370263029213/calendar.ics',
+			      googleCalendarId: '4bhr915n2a0i3d0leej4nve7ma8hv6dp@import.calendar.google.com',
+			      className: 'gcal-event',
+			      title: 'dm elsewhere',
+			      color: '#aaa'
+			    }
+			    // {
+			    //   googleCalendarId: 'jk8gklujo086vtgm0s7njm8qec@group.calendar.google.com',
+			    //   className: 'gcal-event', // an option!
+			    //   title: 'audio lab',
+			    //   color: '#00f'
+			    // },
+			    // {
+			    //   googleCalendarId: 'XXX',
+			    //   className: 'gcal-event', // an option!
+			    //   title: 'laser lab / physical computing',
+			    //   color: '#00f'
+			    // }
+		 			]
+    });
+
+    // // load sources once
+   	// loadICS(fc, 'dm studio', 'gray', "https://cors-anywhere.herokuapp.com/http://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/3523f1b91b744dff8554dba98e8ab3d815867960394945796346/calendar.ics")
+   	// loadICS(fc, 'dm study', 'gray', "https://cors-anywhere.herokuapp.com/http://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/f6511993fb5044e686d611a7f419bc5c2530644850561183238/calendar.ics")
+   	// loadICS(fc, 'dm bremen', 'gray', "https://cors-anywhere.herokuapp.com/http://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/5628dc294db44ae6b26e0c687fef235816016605138998271572/calendar.ics")
+   	// loadICS(fc, 'dm elsewhere', 'gray', "https://cors-anywhere.herokuapp.com/http://outlook.office365.com/owa/calendar/697fb932863f47c9a0d6f1aed49315e8@hfk-bremen.de/9825fb290da84eaabc9057360341a2bc9185091133839772178/calendar.ics")
+    
+  });
+
+ // 	var loadICS = function(fc, title, color, url) {
+	//   $.get(url, function (res) {
+	//     var events = []
+	//     var parsed = ICAL.parse(res);
+	//     parsed[2].forEach(function(event) {
+	//       if (event[0] !== 'vevent') return
+	//       var summary, location, start, end;
+	//       event[1].forEach(function(event_item){
+	//         switch(event_item[0]){
+	//           case 'location':
+	//             location = event_item[3]
+	//             break;
+	//           case 'summary':
+	//             summary = event_item[3]
+	//             break;
+	//           case 'dtstart':
+	//             start = event_item[3]
+	//             break;
+	//           case 'dtend':
+	//             end = event_item[3]
+	//             break;
+	//         }
+	//       })
+ //       if (summary && location && start && end) {
+ //         console.log(summary, 'at', start)
+ //         events.push({
+ //           title: summary,
+ //           start: start,
+ //           end: end,
+ //           location: location
+ //        })
+	//       }
+	//     });
+	//     fc.fullCalendar('addEventSource', events);
+	//   })
+	// };
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Courier", monospace;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
+</html>
