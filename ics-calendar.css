@@ -1,0 +1,39 @@
+.ics-calendar-header {
+	margin-bottom: 1em;
+}
+.ics-calendar-table {
+	background:#000;
+}
+
+.ics-calendar-table td {
+	background: #FFFFFF;
+}
+
+.ics-calendar-days td {
+	background: #000;
+	color: #fff;
+}
+
+.ics-calendar-table td .date-holder, .ics-calendar-table td .old-date-holder, .ics-calendar-table td .date-holder p {
+	padding: 0;
+}
+.ics-calendar-table td .date-holder {
+	background:#eee;
+}
+.ics-calendar-table td .old-date-holder {
+	background:#eeeeee;
+	color:#999999;
+}
+.ics-calendar-table td .ics-calendar-today {
+	background-color:#f00;
+	color:#fff;
+}
+.ics-calendar-event {
+	overflow:visible;
+	white-space:nowrap;
+	padding: 0;
+}
+
+.ics-calendar-event-box {
+	width:500px;
+}
